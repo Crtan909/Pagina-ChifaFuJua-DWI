@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRODUCTOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="css/producto.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        
+        <div class="header navbar-fixed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="index-2.html">
+                                        <img src="img/logo1.png" width="80" alt="">
+                                    </a>
+                                </div> 
+								
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="index.php">Inicio<span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a  class="btn btn-outline-primary d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Catalogo
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="productos.html"><p>PRODUCTOS</p></a>
+                       
+                            </div>     
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="Ofertas.html">OFERTAS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="contactanos.html">CONTACTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="sesion.php">Iniciar Sesion</a>
+                        </li> 
+                        
+                                        <li><a href="index.php"><font color="red">SALIR</font></a></li>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>  
+        <br/><br/>
+                            </div> 
+                        </nav>
+
+                    </div> 
+                    
+                </div>
+            </div> 
+        </div>
+            </nav>
+        </header>  
+        <br/><br/>
+
+        <div class="subtitulo"><h2>PRODUCTOS</h2></div><br/><br/>
+        <div class="container"><br/>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>
+                            <script>
+                                window.onload = function () {
+                                    // Variables
+                                    const baseDeDatos = [
+                                        {
+                                            id: 1,
+                                            nombre: 'GASEOSA PERSONAL',
+                                            precio: 2.00,
+                                            imagen: 'img/CATALOGO/PRODUCTO/GASEOSA.jpg' //600*620
+                                        },
+                                        {
+                                            id: 2,
+                                            nombre: 'MOSTRO',
+                                            precio: 16.50,
+                                            imagen: 'img/CATALOGO/PRODUCTO/MOSTRO.jpg'
+                                        },
+                                        {
+                                            id: 3,
+                                            nombre: 'GATORADE',
+                                            precio: 3.50,
+                                            imagen: 'img/CATALOGO/PRODUCTO/GATORADE.jpg'
+                                        },
+                                        {
+                                            id: 4,
+                                            nombre: 'ARROZ CHAUFA',
+                                            precio: 13.00,
+                                            imagen: 'img/CATALOGO/PRODUCTO/MOSTRO.jpg'
+                                        },
+                                        {
+                                            id: 5,
+                                            nombre: 'AEROPUERTO',
+                                            precio: 16.00,
+                                            imagen: 'img/CATALOGO/PRODUCTO/AEROPUERTO.jpg'
+                                        },
+                                        {
+                                            id: 6,
+                                            nombre: 'TALLARIN SALTADO',
+                                            precio: 12.00,
+                                            imagen: 'img/CATALOGO/PRODUCTO/TALLARIN.jpg'
+                                        }
+
+                                    ];
+
+                                    let carrito = [];
+                                    let total = 0;
+                                    const DOMitems = document.querySelector('#items');
+                                    const DOMcarrito = document.querySelector('#carrito');
+                                    const DOMtotal = document.querySelector('#total');
+                                    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+                                    // Funciones
+
+                                    function renderizarProductos() {
+                                        baseDeDatos.forEach((info) => {
+                                            // Estructura
+                                            const miNodo = document.createElement('div');
+                                            miNodo.classList.add('card', 'col-sm-4');
+                                            // Body
+                                            const miNodoCardBody = document.createElement('div');
+                                            miNodoCardBody.classList.add('card-body');
+                                            // Titulo
+                                            const miNodoTitle = document.createElement('h5');
+                                            miNodoTitle.classList.add('card-title');
+                                            miNodoTitle.textContent = info.nombre;
+                                            // Imagen
+                                            const miNodoImagen = document.createElement('img');
+                                            miNodoImagen.classList.add('img-fluid');
+                                            miNodoImagen.setAttribute('src', info.imagen);
+                                            // Precio
+                                            const miNodoPrecio = document.createElement('p');
+                                            miNodoPrecio.classList.add('card-text');
+                                            miNodoPrecio.textContent = 'S/.' + info.precio;
+                                            // Boton 
+                                            const miNodoBoton = document.createElement('button');
+                                            miNodoBoton.classList.add('btn', 'btn-primary');
+                                            miNodoBoton.textContent = '+';
+                                            miNodoBoton.setAttribute('marcador', info.id);
+                                            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+                                            // Insertamos
+                                            miNodoCardBody.appendChild(miNodoImagen);
+                                            miNodoCardBody.appendChild(miNodoTitle);
+                                            miNodoCardBody.appendChild(miNodoPrecio);
+                                            miNodoCardBody.appendChild(miNodoBoton);
+                                            miNodo.appendChild(miNodoCardBody);
+                                            DOMitems.appendChild(miNodo);
+                                        });
+                                    }
+                                    //Evento para añadir un producto al carrito de la compra
+
+                                    function anyadirProductoAlCarrito(evento) {
+                                        carrito.push(evento.target.getAttribute('marcador'))
+                                        calcularTotal();
+                                        renderizarCarrito();
+                                    }
+                                    //Dibuja todos los productos guardados en el carrito
+                                    function renderizarCarrito() {
+                                        DOMcarrito.textContent = '';
+                                        const carritoSinDuplicados = [...new Set(carrito)];
+                                        carritoSinDuplicados.forEach((item) => {
+
+                                            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                                                return itemBaseDatos.id === parseInt(item);
+                                            });
+                                            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                                                return itemId === item ? total += 1 : total;
+                                            }, 0);
+                                            const miNodo = document.createElement('li');
+                                            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                                            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - S/.${miItem[0].precio}`;
+                                            const miBoton = document.createElement('button');
+                                            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                                            miBoton.textContent = 'X';
+                                            miBoton.style.marginLeft = '1rem';
+                                            miBoton.dataset.item = item;
+                                            miBoton.addEventListener('click', borrarItemCarrito);
+                                            miNodo.appendChild(miBoton);
+                                            DOMcarrito.appendChild(miNodo);
+                                        });
+                                    }
+                                    //Evento para borrar un elemento del carrito
+                                    function borrarItemCarrito(evento) {
+                                        const id = evento.target.dataset.item;
+                                        carrito = carrito.filter((carritoId) => {
+                                            return carritoId !== id;
+                                        });
+                                        renderizarCarrito();
+                                        calcularTotal();
+                                    }
+                                    //Calcula el precio total teniendo en cuenta los productos repetidos
+                                    function calcularTotal() {
+                                        total = 0;
+                                        carrito.forEach((item) => {
+                                            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                                                return itemBaseDatos.id === parseInt(item);
+                                            });
+                                            total = total + miItem[0].precio;
+                                        });
+                                        DOMtotal.textContent = total.toFixed(2);
+                                    }
+                                    //Varia el carrito y vuelve a dibujarlo
+                                    function vaciarCarrito() {
+                                        carrito = [];
+                                        renderizarCarrito();
+                                        calcularTotal();
+                                    }
+                                    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+                                    renderizarProductos();
+                                }
+                            </script>
+                            <div class="container">
+                                <div class="row">
+                                    <main id="items" class="col-sm-8 row"></main>
+                                    <aside class="col-sm-4">
+                                        <h2>Carrito</h2>
+                                        <ul id="carrito" class="list-group"></ul>
+                                        <hr>
+                                        <!-- Precio total -->
+                                        <p class="text-right">Total: S/.<span id="total"></span></p>
+                                        <button id="boton-vaciar" class="btn btn-primary">Vaciar</button>
+                                        <button style="margin: 10%" onclick="alertar('Gracias por su Compra!');" class="btn btn-primary">Comprar</button>
+                                        <script type="text/javascript">
+                                            function alertar(texto) {
+                                                alert(texto);
+                                            }
+                                        </script>
+                                    </aside>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#">6</a></li>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+        </ul>
+        <br/><br/>
+
+        <footer style="background-color: black">
+            <div class="Pie">
+                <table>
+                    <tr>
+                        <td><img src="Icono/logo1.png" width="150"/></td>
+                        <td width="100%" align="right">
+                            <h3>Contactanos:</h3> 
+                            <p>
+                                <img src="Icono/1.png" alt="icon"/>  PUENTE PIEDRA, LIMA
+                                <img src="Icono/2.png" alt="icon"/> TELEFONO : ( +51951476059 )
+                                <img src="Icono/3.png" alt="icon"/> EMAIL : admin@prueba.com
+                            </p>
+                        </td>
+                    </tr>
+                </table>                
+            </div>
+        </footer>   
+    </body>
+</html>
